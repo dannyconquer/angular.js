@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>testRepeat</title>
+    <style type="text/css">
+        .red {background-color: red;}
+        .green {background-color: green;}
+        .blue {background-color: blue;}
+        #box {width: 200px; height: 200px;transition: background-color 1s ease;}
+    </style>
+</head>
+<body>
+    <div ng-app="myApp">
+        <h1>测试ng-repeat</h1>
+        <ul ng-controller="ListController">
+            <li ng-repeat="item in students track by $index">{{item}}</li>
+        </ul>
+        <br>
+        <br>
+        <select name="" id="" ng-model="style" style="width:200px">
+                <option value="red">红色</option>
+                <option value="green">绿色</option>
+                <option value="blue">蓝色</option>
+            </select>
+        <div id="box" ng-class="style">
+            
+        </div>
+    </div>
+</body>
+</html>
+<script src="__PUBLIC__/shaozeTest/angular.js"></script>
+<script type="text/javascript">
+   angular.module('myApp',[]).controller('ListController',['$scope',function($scope){
+        $scope.students = ['tony','andy','Mary','Mary','Mary','May'];
+   }])
+</script>
